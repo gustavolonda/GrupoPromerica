@@ -1,0 +1,5 @@
+package com.example.myweather.openweathermap.infraestructure.confing;
+
+public class FeignResponseDecoderConfig {
+
+}

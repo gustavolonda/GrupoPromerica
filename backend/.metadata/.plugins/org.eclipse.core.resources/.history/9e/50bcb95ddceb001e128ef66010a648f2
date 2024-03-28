@@ -1,0 +1,2 @@
+spring.application.name=myWeather
+server.port=8090

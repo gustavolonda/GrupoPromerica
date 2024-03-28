@@ -1,0 +1,30 @@
+package com.example.myweather.openweathermap.applications.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.myweather.openweathermap.domains.data.OpenWeatherMapResponse;
+import com.example.myweather.openweathermap.domains.services.OpenWeatherMapFeignClient;
+
+@RestController
+@RequestMapping("/OpenWeatherMap")
+public class OpenWeatherMapController {
+	@Value("${open-weather-map.api-key}")
+	private  String apiKeyString;
+	@Autowired
+	private  OpenWeatherMapFeignClient openWeatherMapService;
+	@GetMapping
+	public OpenWeatherMapResponse getAll() {
+		try {
+        	OpenWeatherMapResponse response = openWeatherMapService.currentWeather(44.34,10.99,apiKeyString);
+        	System.out.println(response.toString());
+        	return response;
+		} catch (Exception e) {
+			e.fillInStackTrace();
+		}
+		return null;
+	}
+}

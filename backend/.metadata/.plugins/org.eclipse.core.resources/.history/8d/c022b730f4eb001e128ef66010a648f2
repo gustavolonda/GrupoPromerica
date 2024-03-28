@@ -1,0 +1,7 @@
+package com.example.myweather.openweathermap.domains.services;
+
+
+public interface OpenWeatherMapService {
+
+    
+}

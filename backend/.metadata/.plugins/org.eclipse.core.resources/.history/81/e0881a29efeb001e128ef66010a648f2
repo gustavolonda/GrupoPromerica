@@ -1,0 +1,21 @@
+package com.example.myweather.openweathermap.domains.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
+
+@Component
+public class RunTest implements ApplicationRunner {
+	@Value("${open-weather-map.api-key}")
+	private  String apiKeyString;
+	@Autowired
+	private  OpenWeatherMapService openWeatherMapService;
+    @Override
+    public void run(ApplicationArguments applicationArguments) throws Exception {
+
+        //code goes here
+
+    }
+}
