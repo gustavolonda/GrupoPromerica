@@ -17,8 +17,10 @@ import com.example.myweather.commons.api.domains.exception.BaseException;
 import com.example.myweather.openweathermap.domains.data.OpenWeatherMapResponse;
 
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class OpenWeatherMapService {
 	private static final String TAG             = OpenWeatherMapService.class.getSimpleName();
 	private static final String LAT             = "lat";
@@ -70,11 +72,13 @@ public class OpenWeatherMapService {
 																	        params);
 			return response.getBody();
 		}catch (Exception e) {
-			throw new BaseException().builder()
-									.message(getMessage("open-weather-map.api.weather-current.error"))
-									.module(TAG)
-									.exception(e)
-									.build();
+			BaseException baseException= new BaseException().builder()
+															.message(getMessage("open-weather-map.api.weather-current.error"))
+															.module(TAG)
+															.exception(e)
+															.build();
+			log.info("open-weather-map.api.weather-current.error",baseException);
+			throw baseException;
 		}
 	}
 }
