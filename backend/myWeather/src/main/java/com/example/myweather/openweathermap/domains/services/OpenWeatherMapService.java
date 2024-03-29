@@ -9,16 +9,18 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.example.myweather.openweathermap.applications.rest.OpenWeatherMapController;
+import static com.example.myweather.commons.api.domains.data.UtilMyWeather.getMessage;
+import com.example.myweather.commons.api.domains.exception.BaseException;
 import com.example.myweather.openweathermap.domains.data.OpenWeatherMapResponse;
+
+import lombok.SneakyThrows;
 
 @Service
 public class OpenWeatherMapService {
-	private static final String TAG             = OpenWeatherMapController.class.getSimpleName();
+	private static final String TAG             = OpenWeatherMapService.class.getSimpleName();
 	private static final String LAT             = "lat";
 	private static final String LON             = "lon";
 	private static final String LAT_WITH_SIG    = "{lat}";
@@ -35,6 +37,7 @@ public class OpenWeatherMapService {
 	@Value("${open-weather-map.host.api.current-weather}")
 	private  String apiCurrentWeather;
 	
+	@SneakyThrows
 	public OpenWeatherMapResponse getByLatAndLon(double lat, double lon) {
 		try {
 			 RestTemplate restTemplate = new RestTemplate();
@@ -53,22 +56,25 @@ public class OpenWeatherMapService {
 												        .encode()
 												        .toUriString();
 
-				Map<String, Object> params = new HashMap<>();
-				params.put(LAT, lat);
-				params.put(LON, lon);
-				params.put(APP_ID, apiKey);
+			Map<String, Object> params = new HashMap<>();
+			params.put(LAT, lat);
+			params.put(LON, lon);
+			params.put(APP_ID, apiKey);
 	
 
-				HttpEntity<OpenWeatherMapResponse> response = restTemplate.exchange(
-				        urlTemplate,
-				        HttpMethod.GET,
-				        entity,
-				        OpenWeatherMapResponse.class,
-				        params
-				);return response.getBody();
-		} catch (Exception e) {
-			e.fillInStackTrace();
+			HttpEntity<OpenWeatherMapResponse> response = restTemplate.exchange(
+																	        urlTemplate,
+																	        HttpMethod.GET,
+																	        entity,
+																	        OpenWeatherMapResponse.class,
+																	        params);
+			return response.getBody();
+		}catch (Exception e) {
+			throw new BaseException().builder()
+									.message(getMessage("open-weather-map.api.weather-current.error"))
+									.module(TAG)
+									.exception(e)
+									.build();
 		}
-		return null;
 	}
 }
