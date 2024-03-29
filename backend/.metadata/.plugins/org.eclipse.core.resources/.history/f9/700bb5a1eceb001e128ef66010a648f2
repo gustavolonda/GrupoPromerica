@@ -1,4 +1,0 @@
-spring.application.name=myWeather
-server.port=8095
-open-weather-map.host=https://api.openweathermap.org
-open-weather-map.host.api=/data/2.5/weather

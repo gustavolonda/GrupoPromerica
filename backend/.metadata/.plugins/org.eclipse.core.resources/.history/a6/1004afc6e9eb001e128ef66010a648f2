@@ -1,5 +1,0 @@
-package com.example.myweather.openweathermap.infraestructure.entities;
-
-public class Sys {
-
-}
