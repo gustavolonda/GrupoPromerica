@@ -1,4 +1,4 @@
-package com.example.myweather.openweathermap.domains.data;
+package com.pfc2.weather.openweathermap.domains.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

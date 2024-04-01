@@ -1,4 +1,4 @@
-package com.example.myweather.commons.api.domains.exception;
+package com.pfc2.weather.commons.api.domains.exception;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
