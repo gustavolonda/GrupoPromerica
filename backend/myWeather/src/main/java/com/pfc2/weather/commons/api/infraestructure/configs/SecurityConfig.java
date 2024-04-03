@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -24,6 +25,11 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class SecurityConfig {
 	@Autowired
     MvcRequestMatcher.Builder mvc;
+	public static AntPathRequestMatcher[] PUBLIC_REQUEST_MATCHERS = { new AntPathRequestMatcher(SYS_STATUS_URL),
+																	new AntPathRequestMatcher(API_DOC_SWAGGER_URL), 
+																	new AntPathRequestMatcher(API_DOC_SWAGGER_SUB_URL),
+																	new AntPathRequestMatcher(SWAGGER_URL)};
+	
 	@Bean
     MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
         return new MvcRequestMatcher.Builder(introspector);
@@ -32,27 +38,28 @@ public class SecurityConfig {
     public InternalResourceViewResolver defaultViewResolver() {
         return new InternalResourceViewResolver();
     }
+	@Autowired
+    private JwtAuthEntryPoint unauthorizedHandler;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         /*
         This is where we configure the security required for our endpoints and setup our app to serve as
         an OAuth2 Resource Server, using JWT validation.
         */
-    	
         return http
                 .authorizeHttpRequests((authorize) -> authorize
-                	.requestMatchers(mvc.pattern(API_DOC_SWAGGER_URL)).permitAll()	
-                	.requestMatchers(mvc.pattern(API_DOC_SWAGGER_SUB_URL)).permitAll()	
-                	.requestMatchers(mvc.pattern(SWAGGER_URL)).permitAll()
-                    .requestMatchers(mvc.pattern(HttpMethod.GET, SYS_STATUS_URL)).permitAll()
+                	.requestMatchers(PUBLIC_REQUEST_MATCHERS).permitAll()	
                     .requestMatchers(mvc.pattern(HttpMethod.GET, WEATHER_URL)).hasAuthority(SCOPE_READ)
                     .requestMatchers(mvc.pattern(HttpMethod.POST, WEATHER_URL)).hasAuthority(SCOPE_CREATE)
-                    .requestMatchers(mvc.pattern(HttpMethod.GET, WEATHER_URL + HISTORY_URL)).hasAuthority(SCOPE_READ)
+                    .requestMatchers(mvc.pattern(HttpMethod.GET, WEATHER_URL + HISTORY_URL)).hasAuthority(SCOPE_READ).and()
+           
                 )
+                
                 .cors(withDefaults())
                 .oauth2ResourceServer(oauth2 -> oauth2
-                    .jwt(withDefaults())
-                )
+                    .jwt(withDefaults()))
+                .exceptionHandling(x -> x.accessDeniedHandler(unauthorizedHandler)
+                							.authenticationEntryPoint(unauthorizedHandler))
                 .build();
     }
 }
