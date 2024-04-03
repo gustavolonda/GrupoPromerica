@@ -1,6 +1,6 @@
 FROM openjdk:17-jdk-alpine as builder
 
-WORKDIR /app/management
+WORKDIR /app/myWeather
 
 COPY ./myWeather/build/libs/*.jar /app/myWeather/build/libs/myWeather-0.0.1-SNAPSHOT.jar
 
