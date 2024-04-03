@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "b2633c8e-486f-4baa-a944-e8c3d4db5ee5",
+		"name": "GrupoProAmerica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7108523"
+	},
+	"item": [
+		{
+			"name": "openweathermap",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=a420a9ccbc94a74f951a2700a264dc8b",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "44.34"
+						},
+						{
+							"key": "lon",
+							"value": "10.99"
+						},
+						{
+							"key": "appid",
+							"value": "a420a9ccbc94a74f951a2700a264dc8b"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weather",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ill3MFZUV2dZQ0hwbFJTTzdiM05sYSJ9.eyJpc3MiOiJodHRwczovL2Rldi1nOXIyczJ4ZS51cy5hdXRoMC5jb20vIiwic3ViIjoiNDdocHJvdFNhSlVoUUw2NUNNQWZEUEltQkxEZmtUVEtAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vZGV2LWc5cjJzMnhlLnVzLmF1dGgwLmNvbS9hcGkvdjIvIiwiaWF0IjoxNzEyMDg0MzE1LCJleHAiOjE3MTIxNzA3MTUsInNjb3BlIjoicmVhZDpjbGllbnRfY3JlZGVudGlhbHMgY3JlYXRlOmNsaWVudF9jcmVkZW50aWFscyB1cGRhdGU6Y2xpZW50X2NyZWRlbnRpYWxzIGRlbGV0ZTpjbGllbnRfY3JlZGVudGlhbHMiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiI0N2hwcm90U2FKVWhRTDY1Q01BZkRQSW1CTERma1RUSyJ9.CFhZGMEbuUvVkmkRjezcVbiQ9nSwfCGm0dpAr_fhiYx4wlEbYs4cljWtIcxJ3PshyZHoUivC07D7F5yPP3OkxNVLJGIMF-X5csht3QMhK60TZujdtDp3A2_ph17ktgg0QU4yBZXi4V2SVYlStdZj6cbiovnaeDwOWk2Is8Gm9Rc2-fZFrXYzflP7a717OVD-vgeD00c68urKY7dfcqyvRM882k7bLUuZc5RSWJpq9OcymDf4rbQSPUxNxsOKGXJ5fwDdMhNGslKKexEKOY2t60K4fucdAQWnIOpUCxE6Js7yrzH5Sh5XyJUFF_oOPD43cmqCYxZXnLA0Bj1rJ5uP-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8095/api/v1/weather?lat=23.34&lon=10.56",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8095",
+					"path": [
+						"api",
+						"v1",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "23.34"
+						},
+						{
+							"key": "lon",
+							"value": "10.56"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weather",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ill3MFZUV2dZQ0hwbFJTTzdiM05sYSJ9.eyJpc3MiOiJodHRwczovL2Rldi1nOXIyczJ4ZS51cy5hdXRoMC5jb20vIiwic3ViIjoiNDdocHJvdFNhSlVoUUw2NUNNQWZEUEltQkxEZmtUVEtAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vZGV2LWc5cjJzMnhlLnVzLmF1dGgwLmNvbS9hcGkvdjIvIiwiaWF0IjoxNzEyMDg0MzE1LCJleHAiOjE3MTIxNzA3MTUsInNjb3BlIjoicmVhZDpjbGllbnRfY3JlZGVudGlhbHMgY3JlYXRlOmNsaWVudF9jcmVkZW50aWFscyB1cGRhdGU6Y2xpZW50X2NyZWRlbnRpYWxzIGRlbGV0ZTpjbGllbnRfY3JlZGVudGlhbHMiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiI0N2hwcm90U2FKVWhRTDY1Q01BZkRQSW1CTERma1RUSyJ9.CFhZGMEbuUvVkmkRjezcVbiQ9nSwfCGm0dpAr_fhiYx4wlEbYs4cljWtIcxJ3PshyZHoUivC07D7F5yPP3OkxNVLJGIMF-X5csht3QMhK60TZujdtDp3A2_ph17ktgg0QU4yBZXi4V2SVYlStdZj6cbiovnaeDwOWk2Is8Gm9Rc2-fZFrXYzflP7a717OVD-vgeD00c68urKY7dfcqyvRM882k7bLUuZc5RSWJpq9OcymDf4rbQSPUxNxsOKGXJ5fwDdMhNGslKKexEKOY2t60K4fucdAQWnIOpUCxE6Js7yrzH5Sh5XyJUFF_oOPD43cmqCYxZXnLA0Bj1rJ5uP-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"lat\": 10.01,\n\"lon\": -84.10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8095/api/v1/weather",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8095",
+					"path": [
+						"api",
+						"v1",
+						"weather"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "history",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ill3MFZUV2dZQ0hwbFJTTzdiM05sYSJ9.eyJpc3MiOiJodHRwczovL2Rldi1nOXIyczJ4ZS51cy5hdXRoMC5jb20vIiwic3ViIjoiNDdocHJvdFNhSlVoUUw2NUNNQWZEUEltQkxEZmtUVEtAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vZGV2LWc5cjJzMnhlLnVzLmF1dGgwLmNvbS9hcGkvdjIvIiwiaWF0IjoxNzEyMDg0MzE1LCJleHAiOjE3MTIxNzA3MTUsInNjb3BlIjoicmVhZDpjbGllbnRfY3JlZGVudGlhbHMgY3JlYXRlOmNsaWVudF9jcmVkZW50aWFscyB1cGRhdGU6Y2xpZW50X2NyZWRlbnRpYWxzIGRlbGV0ZTpjbGllbnRfY3JlZGVudGlhbHMiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJhenAiOiI0N2hwcm90U2FKVWhRTDY1Q01BZkRQSW1CTERma1RUSyJ9.CFhZGMEbuUvVkmkRjezcVbiQ9nSwfCGm0dpAr_fhiYx4wlEbYs4cljWtIcxJ3PshyZHoUivC07D7F5yPP3OkxNVLJGIMF-X5csht3QMhK60TZujdtDp3A2_ph17ktgg0QU4yBZXi4V2SVYlStdZj6cbiovnaeDwOWk2Is8Gm9Rc2-fZFrXYzflP7a717OVD-vgeD00c68urKY7dfcqyvRM882k7bLUuZc5RSWJpq9OcymDf4rbQSPUxNxsOKGXJ5fwDdMhNGslKKexEKOY2t60K4fucdAQWnIOpUCxE6Js7yrzH5Sh5XyJUFF_oOPD43cmqCYxZXnLA0Bj1rJ5uP-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8095/api/v1/weather/history",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8095",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8095/sys/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8095",
+					"path": [
+						"sys",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://dev-g9r2s2xe.us.auth0.com/oauth/token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"client_id\":\"47hprotSaJUhQL65CMAfDPImBLDfkTTK\",\"client_secret\":\"nc1zr7vG5_OjIqK3SS4FobJ4U0ordb_FnjdDm9oiY4mA2SvCzOnW-qNDjTQhclQs\",\"audience\":\"https://dev-g9r2s2xe.us.auth0.com/api/v2/\",\"grant_type\":\"client_credentials\"}"
+				},
+				"url": {
+					"raw": "https://dev-g9r2s2xe.us.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"dev-g9r2s2xe",
+						"us",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
