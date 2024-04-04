@@ -7,6 +7,7 @@ services:
       dockerfile: ./myWeather/Dockerfile
     ports:
       - "8095:8095"
+    env_file: ./myWeather/.env
     networks:
       - spring
     restart: always
