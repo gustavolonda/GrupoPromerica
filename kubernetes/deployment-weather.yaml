@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-weather
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-weather
+  template:
+    metadata:
+      labels:
+        app: my-weather
+    spec:
+      containers:
+        - name: weather
+          image: glonda/weather:latest
+          ports:
+            - containerPort: 8095
+          env:
+            - name: APPLICATION_NAME
+              value: myWeather
+            - name: SERVER_PORT
+              value: "8095"
+            - name: DATA_SOURCE_URL
+              value: jdbc:h2:mem:grupoProamericaDB
+            - name: DATA_SOURCE_DRIVER_CLASS_NAME
+              value: org.h2.Driver
+            - name: DATA_SOURCE_USERNAME
+              value: sa
+            - name: DATA_SOURCE_PASSWORD
+              value: admin
+            - name: OPEN_WEATHER_MAP_HOST
+              value: https://api.openweathermap.org/
+            - name: OPEN_WEATHER_MAP_HOST_API_CURRENT_WEATHER
+              value: data/2.5/weather
+            - name: OPEN_WEATHER_MAP_API_KEY
+              value: a420a9ccbc94a74f951a2700a264dc8b
+            - name: MY_WEATHER_LANGUAGE
+              value: es
+            - name: LOGGING_LEVEL_COM
+              value: INFO
+            - name: LOGGING_FILE_NAME
+              value: ~/myWeather/logs/${APPLICATION_NAME}.log
+            - name: LOGGING_MAX_FILE_SIZEE
+              value: "10MB"
+            - name: LOGGING_CLEAN_HISTORY_ON_START
+              value: "true"
+            - name: SPRING_EXCEPTON_IF_NO_HANDLER_FOUND
+              value: "true"
+            - name: MY_WEATHER_OPEN_API_DEV_URL
+              value: http://localhost:8095
+            - name: JWT_AUDIENCES
+              value: https://dev-g9r2s2xe.us.auth0.com/api/v2/
+            - name: JWT_ISSUER_URL
+              value: https://dev-g9r2s2xe.us.auth0.com/
+            - name: SPRING_MAIN_ALLOW_CIRCULAR_REF
+              value: "true"
