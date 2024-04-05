@@ -144,8 +144,8 @@ Link de Swagger: http://localhost:8095/swagger-ui/index.html/
 * Swagger
   
 ### Crear Imagen Docker
-Para la creación de la imagen es necesario tener instalado docker y docker compose. Se ejecuta el comando   sudo docker-compose up --build -d, dentro de la carpeta backend.
-También se puede usar el comando sudo docker build -t backend_weather . -f ./myWeather/Dockerfile y se tiene que estar dentro de la carpeta backend
+Para la creación de la imagen es necesario tener instalado docker y docker compose. Se ejecuta el comando  <span style="color:blue;font-weight:bold">sudo docker-compose up --build -d</span> , dentro de la carpeta backend.
+También se puede usar el comando <span style="color:blue;font-weight:bold">sudo docker build -t backend_weather . -f ./myWeather/Dockerfile </span> y se tiene que estar dentro de la carpeta backend
 
 ### Subir Imagen a Docker Hub
 Para subir la imagen a docker hub se necesita tener una cuenta de usuario, crear un repositorio e iniciar sesión de usuario con la terminal (docker login).  Se hace una copia de la imagen con el nombre del repositorio de docker hub (docker tag backend_weather glonda/weather) y se sube con el comando: docker push glonda/weather
