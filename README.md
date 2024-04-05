@@ -131,6 +131,7 @@ GET: http://localhost:8095/sys/status
 * Minikube
 * OpenWeather
 * Github
+* Swagger
   
 ### Crear Imagen Docker
 Para la creación de la imagen es necesario tener instalado docker y docker compose. Se ejecuta el comando   sudo docker-compose up --build -d, dentro de la carpeta backend.
@@ -144,7 +145,7 @@ Para deployar la imagen a docker, se necesita tener un hambiente de kubernetes. 
 Se debe aplicar los archivos de deployment y el service para ejecutar la imagen. Se usa el comando  kubectl apply -f ./deployment-weather.yaml -f ./my-weather.yaml dentro de la carpeta kubernetes.
 
 ### Prueba Realizada
-Dentro de la carpeta postman, se encuentra un archivo json con todo los datos necesarios. El cual debe ser importado en post,man para realizar pruebas. 
+Dentro de la carpeta postman, se encuentra un archivo json con todo los datos necesarios. El cual debe ser importado en postman para realizar pruebas. 
 
 
 <code><p align="center"><img src="https://github.com/gustavolonda/GrupoPromerica/blob/master/imagApp/app.gif" title="app" style="display: block;margin-left: auto;margin-right: auto;"></p></code>
