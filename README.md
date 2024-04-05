@@ -5,7 +5,7 @@
 
 ### Introducción
 
-El proyecto está desarrollado en java con spring boot,y lee los  web services de Open Weather Map para obtener los datos. La base de datos que se utilizó es h2, que es una base de datos en memoria.
+El proyecto está desarrollado en java con spring boot,y usa los  web services de Open Weather Map para obtener los datos. La base de datos que se utilizó es h2, que es una base de datos en memoria.
 
 Está compuesta por 4 api:
 
@@ -125,6 +125,8 @@ Response:
 * El cuarto responde 200 cada vez que es llamado y no tiene seguridad. Se puede llamar sin token y se usa el método get.
 
 GET: http://localhost:8095/sys/status
+
+Link de Swagger: http://localhost:8095/swagger-ui/index.html/
 
 ### Herramientas utilizadas
 * Java 17
