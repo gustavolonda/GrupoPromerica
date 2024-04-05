@@ -11,7 +11,9 @@ El primero es para obtener el clima actual, el llamado se mediante el método ge
 
 GET: http://localhost:8095/api/v1/weather?lat=10.01&lon=-84.10
 Response:
-```{"status": "Ok",
+```
+{
+  "status": "Ok",
    "message": "El proceso terminó exitosamente",
    "result": {
        "id": "d8b39e19-9128-465c-af6b-af1958cf31a7",
@@ -34,13 +36,15 @@ El segundo es para  guardar una latitud y longitud, se usa el método post
 POST: http://localhost:8095/api/v1/weather
 
 Request:
-```{
-"lat": 1.01,
-"lon": -8.10
-                        }
+```
+{
+  "lat": 1.01,
+  "lon": -8.10
+}
 ```
 Response:
-```{
+```
+{
    "status": "Ok",
    "message": "El proceso terminó exitosamente",
    "result": {
@@ -64,7 +68,8 @@ El tercero utiliza un método get para obtener todos datos guardados en la base 
 GET: http://localhost:8095/api/v1/weather/history
 
 Response:
-```{
+```
+{
    "status": "Ok",
    "message": "El proceso terminó exitosamente",
    "result": [
