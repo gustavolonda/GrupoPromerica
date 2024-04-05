@@ -148,11 +148,11 @@ Para la creación de la imagen es necesario tener instalado docker y docker comp
 También se puede usar el comando ` sudo docker build -t backend_weather . -f ./myWeather/Dockerfile ` y se tiene que estar dentro de la carpeta backend
 
 ### Subir Imagen a Docker Hub
-Para subir la imagen a docker hub se necesita tener una cuenta de usuario, crear un repositorio e iniciar sesión de usuario con la terminal (docker login).  Se hace una copia de la imagen con el nombre del repositorio de docker hub (docker tag backend_weather glonda/weather) y se sube con el comando: docker push glonda/weather
+Para subir la imagen a docker hub se necesita tener una cuenta de usuario, crear un repositorio e iniciar sesión de usuario con la terminal (`docker login`).  Se hace una copia de la imagen con el nombre del repositorio de docker hub (`docker tag backend_weather glonda/weather`) y se sube con el comando: docker push glonda/weather
 
 ### Deployar en Kubernetes
 Para deployar la imagen a docker, se necesita tener un hambiente de kubernetes. Yo instale Minikube, el cual es muy recomendable.
-Se debe aplicar los archivos de deployment y el service para ejecutar la imagen. Se usa el comando  kubectl apply -f ./deployment-weather.yaml -f ./my-weather.yaml dentro de la carpeta kubernetes.
+Se debe aplicar los archivos de deployment y el service para ejecutar la imagen. Se usa el comando  `kubectl apply -f ./deployment-weather.yaml -f ./my-weather.yaml` dentro de la carpeta kubernetes.
 
 ### Prueba Realizada
 Dentro de la carpeta postman, se encuentra un archivo json con todo los datos necesarios. El cual debe ser importado en postman para realizar pruebas. 
