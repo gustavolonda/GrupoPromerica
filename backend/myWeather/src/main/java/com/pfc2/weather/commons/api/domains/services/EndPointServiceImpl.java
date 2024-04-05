@@ -22,15 +22,26 @@ public abstract class EndPointServiceImpl<T, ID>   implements IEndPointService<T
 	@SneakyThrows
 	public T save(T entity) {
 		try {
+			BaseException error = this.validate(entity);
+			if(error != null)
+				throw error;
+				
 	       	return getDao().save(entity);
 		} catch (Exception e) {
-			BaseException baseException=  new BaseException().builder()
-															.message(getMessage("my-weather.api.create.error"))
-															.module(nameModule())
-															.exception(e)
-															.build();
-			log.info("my-weather.api.create.error",baseException);
-			throw baseException;
+			if(e instanceof BaseException) {
+				log.info("my-weather.api.create.error", e);
+				throw e	;
+			}
+			else {
+				BaseException baseException=  new BaseException().builder()
+						.message(getMessage("my-weather.api.create.error"))
+						.module(nameModule())
+						.exception(e)
+						.build();
+				log.info("my-weather.api.create.error",baseException);
+				throw baseException;
+			}
+			
 		}
 		
 	}
@@ -131,4 +142,5 @@ public abstract class EndPointServiceImpl<T, ID>   implements IEndPointService<T
 	public abstract JpaRepository<T, ID> getDao();
 	public abstract T statusChangeDelete(T entity);
 	public abstract String nameModule();
+	public abstract BaseException validate(T entity);
 }

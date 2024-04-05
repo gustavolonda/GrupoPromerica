@@ -93,6 +93,20 @@ public class WeatherHistoryServiceImpl extends EndPointServiceImpl<WeatherHistor
 		}
 	}
 
+	@Override
+	public BaseException validate(WeatherHistoryEntity entity) {
+		WeatherHistoryEntity weatherHistoryEntity =	repository.findFirstByLatAndLon(entity.getLat(), entity.getLon());
+		if(weatherHistoryEntity != null) {
+			Exception e = new Exception();
+			return new BaseException().builder()
+					.message(getMessage("open-weather-map.api.save.error.duplicate"))
+					.module(TAG)
+					.exception(e)
+					.build();
+		}
+		return null;
+	}
+
 	
 
 
