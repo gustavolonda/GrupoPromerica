@@ -8,7 +8,7 @@
 El proyecto está desarrollado en java con spring boot,y lee los  web services de Open Weather Map para obtener los datos. La base de datos que se utilizó es h2, que es una base de datos en memoria.
 Está compuesta por 4 api:
 El primero es para obtener el clima actual, el llamado se mediante el método get
-Ejemplo:
+
 GET: http://localhost:8095/api/v1/weather?lat=10.01&lon=-84.10
 Response:
 ```{"status": "Ok",
@@ -30,7 +30,7 @@ Response:
 ```
 
 El segundo es para  guardar una latitud y longitud, se usa el método post
-Ejemplo:
+
 POST: http://localhost:8095/api/v1/weather
 
 Request:
@@ -60,7 +60,7 @@ Response:
 ```
 
 El tercero utiliza un método get para obtener todos datos guardados en la base de datos
-Ejemplo:
+
 GET: http://localhost:8095/api/v1/weather/history
 
 Response:
@@ -115,22 +115,22 @@ Response:
 
 
 El cuarto responde 200 cada vez que es llamado y no tiene seguridad. Se puede llamar sin token y se usa el método get.
-Ejemplo
+
 GET: http://localhost:8095/sys/status
 
-Herramientas utilizadas
-Java 17
-Spring boot 3.1.4
-Gradle
-H2
-Spring Security
-Auth0
-Docker
-Docker Compose
-Kubernetes
-Minikube
-OpenWeather
-Github
+###Herramientas utilizadas
+*Java 17
+*Spring boot 3.1.4
+*Gradle
+*H2
+*Spring Security
+*Auth0
+*Docker
+*Docker Compose
+*Kubernetes
+*Minikube
+*OpenWeather
+*Github
 
 
 ### Prueba Realizada
