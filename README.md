@@ -5,7 +5,7 @@
 
 ### Introducción
 
-El proyecto está desarrollado en java con spring boot,y usa los  web services de Open Weather Map para obtener los datos. La base de datos que se utilizó es h2, que es una base de datos en memoria.
+El proyecto está desarrollado en java con spring boot y usa los  web services de Open Weather Map para obtener los datos. La base de datos que se utilizó es h2, la cual es una base de datos en memoria.
 
 Está compuesta por 4 api:
 
