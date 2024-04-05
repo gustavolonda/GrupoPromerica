@@ -151,7 +151,7 @@ También se puede usar el comando ` sudo docker build -t backend_weather . -f ./
 Para subir la imagen a docker hub se necesita tener una cuenta de usuario, crear un repositorio e iniciar sesión de usuario con la terminal (`docker login`).  Se hace una copia de la imagen con el nombre del repositorio de docker hub (`docker tag backend_weather glonda/weather`) y se sube con el comando: docker push glonda/weather
 
 ### Deployar en Kubernetes
-Para deployar la imagen a docker, se necesita tener un hambiente de kubernetes. Yo instale Minikube, el cual es muy recomendable.
+Para deployar la imagen de docker, se necesita tener un hambiente de kubernetes. Yo instale Minikube, el cual es muy recomendable.
 Se debe aplicar los archivos de deployment y el service para ejecutar la imagen. Se usa el comando  `kubectl apply -f ./deployment-weather.yaml -f ./my-weather.yaml` dentro de la carpeta kubernetes.
 
 ### Prueba Realizada
