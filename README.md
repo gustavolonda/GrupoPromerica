@@ -125,8 +125,8 @@ Response:
 > * El cuarto responde 200 cada vez que es llamado y no tiene seguridad. Se puede llamar sin token y se usa el método get.
 
 GET: http://localhost:8095/sys/status
-
-Link de Swagger: http://localhost:8095/swagger-ui/index.html/
+> [!TIP]
+> Link de Swagger: http://localhost:8095/swagger-ui/index.html/
 
 ### Herramientas utilizadas
 * Java 17
