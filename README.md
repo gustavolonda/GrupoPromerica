@@ -33,7 +33,7 @@ El segundo es para  guardar una latitud y longitud, se usa el método post
 Ejemplo:
 POST: http://localhost:8095/api/v1/weather
 
-Request:: 
+Request:
 ```{
 "lat": 1.01,
 "lon": -8.10
@@ -62,6 +62,7 @@ Response:
 El tercero utiliza un método get para obtener todos datos guardados en la base de datos
 Ejemplo:
 GET: http://localhost:8095/api/v1/weather/history
+
 Response:
 ```{
    "status": "Ok",
@@ -134,4 +135,4 @@ Github
 
 ### Prueba Realizada
 
-<code><p align="center"><img height="400" src="https://github.com/gustavolonda/GrupoPromerica/blob/master/imagApp/app.gif" title="app" style="display: block;margin-left: auto;margin-right: auto;"></p></code>
+<code><p align="center"><img src="https://github.com/gustavolonda/GrupoPromerica/blob/master/imagApp/app.gif" title="app" style="display: block;margin-left: auto;margin-right: auto;"></p></code>
