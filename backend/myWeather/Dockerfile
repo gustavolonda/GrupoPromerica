@@ -1,7 +1,8 @@
 FROM openjdk:17-jdk-alpine as builder
-WORKDIR /myWeather
-CMD ["./gradlew", "clean", "build"]
-COPY ./myWeather/build/libs/myWeather-0.0.1-SNAPSHOT.jar   /app/myWeather-0.0.1-SNAPSHOT.jar 
+WORKDIR /app/myWeather
+COPY ./myWeather   /app/myWeather
+RUN  /app/myWeather/gradlew clean build && cp -f  /app/myWeather/build/libs/myWeather-0.0.1-SNAPSHOT.jar /app/myWeather-0.0.1-SNAPSHOT.jar
+run  rm -r /app/myWeather
 
 FROM openjdk:17-jdk-alpine
 
