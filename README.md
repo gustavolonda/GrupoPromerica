@@ -9,7 +9,7 @@ El proyecto está desarrollado en java con spring boot y usa los  web services d
 
 Está compuesta por 4 api:
 
->* El primero es para obtener el clima actual, el llamado se mediante el método get.
+>* El primero es para obtener el clima actual, el llamado se hace mediante el método get.
 
 GET: http://localhost:8095/api/v1/weather?lat=10.01&lon=-84.10
 
