@@ -6,8 +6,10 @@
 ### Introducción
 
 El proyecto está desarrollado en java con spring boot,y lee los  web services de Open Weather Map para obtener los datos. La base de datos que se utilizó es h2, que es una base de datos en memoria.
+
 Está compuesta por 4 api:
-El primero es para obtener el clima actual, el llamado se mediante el método get
+
+* El primero es para obtener el clima actual, el llamado se mediante el método get.
 
 GET: http://localhost:8095/api/v1/weather?lat=10.01&lon=-84.10
 
@@ -32,7 +34,7 @@ Response:
 }
 ```
 
-El segundo es para  guardar una latitud y longitud, se usa el método post
+* El segundo es para  guardar una latitud y longitud, se usa el método post.
 
 POST: http://localhost:8095/api/v1/weather
 
@@ -64,7 +66,7 @@ Response:
 }
 ```
 
-El tercero utiliza un método get para obtener todos datos guardados en la base de datos
+* El tercero utiliza un método get para obtener todos los datos guardados en la base de datos.
 
 GET: http://localhost:8095/api/v1/weather/history
 
@@ -120,7 +122,7 @@ Response:
 ```
 
 
-El cuarto responde 200 cada vez que es llamado y no tiene seguridad. Se puede llamar sin token y se usa el método get.
+* El cuarto responde 200 cada vez que es llamado y no tiene seguridad. Se puede llamar sin token y se usa el método get.
 
 GET: http://localhost:8095/sys/status
 
