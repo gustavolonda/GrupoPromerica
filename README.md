@@ -34,7 +34,7 @@ Response:
 }
 ```
 
->* El segundo es para  guardar una latitud y longitud, se usa el método post.
+>* El segundo es para  guardar una latitud y una longitud, se usa el método post.
 
 POST: http://localhost:8095/api/v1/weather
 
