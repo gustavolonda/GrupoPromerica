@@ -34,7 +34,6 @@ public class WeatherHistoryRepositoryIntegrationTest {
     @Test
     void testSave() {
         // Given
-        SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
         WeatherHistoryEntity weatherHistoryEntity = WeatherHistoryEntity.builder()
                                                                         .lat(10.01)
                                                                         .lon(-84.1)
