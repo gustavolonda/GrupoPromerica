@@ -1,5 +1,6 @@
 package com.example.myweather.weatherhistory.infraestructure.repositories;
 
+import static com.example.myweather.weatherhistory.infraestructure.configs.Constants.TAG_INGRATETION_TEST_RESPOSITORY;
 import static  com.pfc2.weather.commons.api.domains.data.UtilMyWeather.toDate;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +9,6 @@ import com.pfc2.weather.weatherhistory.infraestructure.repositories.WeatherHisto
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
