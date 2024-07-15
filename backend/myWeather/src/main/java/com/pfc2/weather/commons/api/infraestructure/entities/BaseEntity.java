@@ -2,6 +2,7 @@ package com.pfc2.weather.commons.api.infraestructure.entities;
 import java.util.Date;
 
 
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -18,7 +19,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
-public class BaseEntity {
+@SuperBuilder(toBuilder = true)
+public abstract  class BaseEntity {
 	@CreationTimestamp
 	@Column(name = "create_date" , columnDefinition = "TIMESTAMP")
 	private Date createDate;
@@ -28,5 +30,4 @@ public class BaseEntity {
 	private Date modifyDate;
 	@Column(columnDefinition = "varchar(2)")
 	private String status = StatusDomain.ACTIVE.getValue();
-
 }
