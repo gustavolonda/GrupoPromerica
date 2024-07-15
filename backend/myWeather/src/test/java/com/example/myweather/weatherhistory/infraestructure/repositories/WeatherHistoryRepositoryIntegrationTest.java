@@ -22,6 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Date;
 import java.util.List;
 
+@Tag(TAG_INGRATETION_TEST_RESPOSITORY)
 @ContextConfiguration(classes = { WeatherHistoryRepository.class })
 @EnableJpaRepositories(basePackages = {"com.pfc2.weather.*"})
 @EntityScan(basePackages = { "com.pfc2.weather.*"})
@@ -56,8 +57,8 @@ public class WeatherHistoryRepositoryIntegrationTest {
         assertNotNull(weatherHistoryEntityResponse.getCreateDate());
     }
 
-    // JUnit test for findAll method
-    @DisplayName("JUnit test for findAll method")
+    // Integration test for findAll method
+    @DisplayName("Integration test for findAll method")
     @Test
     public void whenGetAllWeatherHistoryEntities_thenReturnWeatherHistoryEntitiesList(){
         // When
@@ -70,7 +71,7 @@ public class WeatherHistoryRepositoryIntegrationTest {
         assertEquals(-84.1, ((WeatherHistoryEntity) weatherHistoryEntities.iterator().next()).getLon());
     }
 
-    @DisplayName("JUnit test for findAll method (negative scenario)")
+    @DisplayName("Integration test for findAll method (negative scenario)")
     @Test
     public void whenGetAllWeatherHistoryEntities_thenReturnEmptyWeatherHistoryEntitiesList(){
 
@@ -82,8 +83,8 @@ public class WeatherHistoryRepositoryIntegrationTest {
         assertThat(weatherHistoryEntities.size()).isEqualTo(0);
     }
 
-    // JUnit test for findById method
-    @DisplayName("JUnit test for findById method")
+    // Integration test for findById method
+    @DisplayName("Integration test for findById method")
     @Test
     public void givenWeatherHistoryId_whenGetEmployeeById_thenReturnWeatherHistoryEntity(){
         // Given
