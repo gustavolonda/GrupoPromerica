@@ -10,6 +10,7 @@ import jakarta.persistence.TemporalType;
 import java.util.Date;
 
 
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.pfc2.weather.commons.api.infraestructure.entities.*;
@@ -20,7 +21,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
