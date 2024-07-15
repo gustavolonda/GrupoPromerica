@@ -1,3 +1,2 @@
-INSERT INTO cuentas (persona, saldo) VALUES ('Andrés', 1000);
-INSERT INTO cuentas (persona, saldo) VALUES ('John', 2000);
-INSERT INTO bancos (nombre, total_transferencias) VALUES ('El banco financiero', 0);
+INSERT INTO weather_history (id,humidity,lat,lon,status,temp_max,temp_min,weather)
+VALUES ('8e0144c4-7ed9-4d7b-beab-702d89bbc627',87,10.01, 84.1,'A',294.0,291.83,'Fog');
