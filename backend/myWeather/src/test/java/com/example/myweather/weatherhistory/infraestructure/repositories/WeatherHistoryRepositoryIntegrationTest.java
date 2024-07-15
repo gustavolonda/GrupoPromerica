@@ -19,11 +19,11 @@ import org.springframework.test.context.ContextConfiguration;
 
 
 
-import java.text.SimpleDateFormat;
+import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Date;
+import java.util.List;
 
 @ContextConfiguration(classes = { WeatherHistoryRepository.class })
-@EnableAutoConfiguration
 @EnableJpaRepositories(basePackages = {"com.pfc2.weather.*"})
 @EntityScan(basePackages = { "com.pfc2.weather.*"})
 @DataJpaTest
@@ -32,7 +32,7 @@ public class WeatherHistoryRepositoryIntegrationTest {
     WeatherHistoryRepository weatherHistoryRepository;
 
     @Test
-    void testSave() {
+    void givenWeatherHistoryEntity_whenSaveWeatherHistoryEntity_thenReturnWeatherHistoryEntity() {
         // Given
         WeatherHistoryEntity weatherHistoryEntity = WeatherHistoryEntity.builder()
                                                                         .lat(10.01)
@@ -41,16 +41,60 @@ public class WeatherHistoryRepositoryIntegrationTest {
                                                                         .tempMin(291.83)
                                                                         .tempMax(294.0)
                                                                         .humidity(87)
+                                                                        .createDate(new Date())
+                                                                        .modifyDate(new Date())
                                                                         .queryServerDate(toDate("05-04-2024 02:19 AM UTC"))
                                                                         .build();
 
         // When
         WeatherHistoryEntity weatherHistoryEntityResponse = weatherHistoryRepository.save(weatherHistoryEntity);
 
+
         // Then
         assertNotNull(weatherHistoryEntityResponse.getId());
         assertEquals(10.01, weatherHistoryEntityResponse.getLat());
         assertEquals(-84.1, weatherHistoryEntityResponse.getLon());
         assertNotNull(weatherHistoryEntityResponse.getCreateDate());
+    }
+
+    // JUnit test for findAll method
+    @DisplayName("JUnit test for findAll method")
+    @Test
+    public void whenGetAllWeatherHistoryEntities_thenReturnWeatherHistoryEntitiesList(){
+        // When
+        List<WeatherHistoryEntity> weatherHistoryEntities = weatherHistoryRepository.findAll();
+
+
+        // Then
+        assertEquals(0, weatherHistoryEntities.spliterator().getExactSizeIfKnown());
+        assertEquals(10.01, ((WeatherHistoryEntity) weatherHistoryEntities.iterator().next()).getLat());
+        assertEquals(-84.1, ((WeatherHistoryEntity) weatherHistoryEntities.iterator().next()).getLon());
+    }
+
+    @DisplayName("JUnit test for findAll method (negative scenario)")
+    @Test
+    public void whenGetAllWeatherHistoryEntities_thenReturnEmptyWeatherHistoryEntitiesList(){
+
+        // When
+        List<WeatherHistoryEntity> weatherHistoryEntities = weatherHistoryRepository.findAll();
+
+        // then - verify the output
+        assertThat(weatherHistoryEntities).isEmpty();
+        assertThat(weatherHistoryEntities.size()).isEqualTo(0);
+    }
+
+    // JUnit test for findById method
+    @DisplayName("JUnit test for findById method")
+    @Test
+    public void givenWeatherHistoryId_whenGetEmployeeById_thenReturnWeatherHistoryEntity(){
+        // Given
+        String weatherHistoryId = "8e0144c4-7ed9-4d7b-beab-702d89bbc627";
+
+        // When
+        WeatherHistoryEntity weatherHistoryEntity = weatherHistoryRepository.findById(weatherHistoryId).orElse(null);
+
+        // Then
+        assertNotNull(weatherHistoryEntity);
+        assertEquals(weatherHistoryId, weatherHistoryEntity.getId());
     }
 }
