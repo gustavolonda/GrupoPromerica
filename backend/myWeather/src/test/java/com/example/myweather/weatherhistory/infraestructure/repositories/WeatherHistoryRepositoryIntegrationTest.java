@@ -1,12 +1,11 @@
 package com.example.myweather.weatherhistory.infraestructure.repositories;
 
 import static  com.pfc2.weather.commons.api.domains.data.UtilMyWeather.toDate;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.pfc2.weather.weatherhistory.infraestructure.entities.WeatherHistoryEntity;
 import com.pfc2.weather.weatherhistory.infraestructure.repositories.WeatherHistoryRepository;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
